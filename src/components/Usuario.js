@@ -1,14 +1,30 @@
-export default function Usuario(){
+import React from 'react'
+export default function Usuario(props){
+
+    const [username, setUsername] = React.useState(props.username)
+    function getUserName() {
+      const userName = prompt("Digite seu nome de usuário");
+      setUsername(userName);
+    }
+
+
+    const [profileImage , setProfileImage] = React.useState(props.imagem)
+    function getImage(){
+      const imagePerfil = prompt("Coloque o link da nova imagem")
+      setProfileImage(imagePerfil)
+    } 
+
     return (
       <div className="usuario">
-        <img src="assets/img/catanacomics.svg" alt=""/>
+        <img src={profileImage} onClick={getImage} alt="" />
         <div className="texto">
-          <strong>catanacomics</strong>
+          <strong>{props.username}</strong>
           <span>
-            Catana
-            <ion-icon name="pencil"></ion-icon>
+            {username}
+            <ion-icon onClick={getUserName} name="pencil"></ion-icon>
           </span>
         </div>
       </div>
     );
 }
+

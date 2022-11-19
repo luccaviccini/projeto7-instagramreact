@@ -5,12 +5,14 @@ export default function Posts() {
       imagem: "assets/img/meowed.svg",
       curtidoPor: "respondeai",
       curtidas: "101.523",
+      conteudo: "assets/img/gato-telefone.svg",
     },
     {
       nome: "barked",
       imagem: "assets/img/barked.svg",
       curtidoPor: "adorable_animals",
       curtidas: "99.159",
+      conteudo: "assets/img/dog.svg",
     },
   ];
 
@@ -23,6 +25,7 @@ export default function Posts() {
           imagem={post.imagem}
           curtidoPor={post.curtidoPor}
           curtidas={post.curtidas}
+          conteudo={post.conteudo}
         />
       ))}
       ;
@@ -48,7 +51,7 @@ function Post(props) {
         </div>
 
         <div className="conteudo">
-          <img src="assets/img/gato-telefone.svg" alt="" />
+          <img src={props.conteudo} alt="" />
         </div>
 
         <div className="fundo">

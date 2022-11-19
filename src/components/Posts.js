@@ -55,7 +55,7 @@ function Post(props) {
   }
 
   return (
-    <div className="post">
+    <div data-test="post" className="post">
       <div className="topo">
         <div className="usuario">
           <img src={props.imagem} alt="" />
@@ -67,13 +67,19 @@ function Post(props) {
       </div>
 
       <div className="conteudo">
-        <img onDoubleClick={!liked? like : () => {}} src={props.conteudo} alt="" />
+        <img
+          data-test="post-image"
+          onDoubleClick={!liked ? like : () => {}}
+          src={props.conteudo}
+          alt=""
+        />
       </div>
 
       <div className="fundo">
         <div className="acoes">
           <div>
             <ion-icon
+              data-test="like-post"
               onClick={like}
               name={liked ? "heart" : "heart-outline"}
               style={
@@ -84,6 +90,7 @@ function Post(props) {
           </div>
           <div>
             <ion-icon
+              data-test="save-post"
               onClick={save}
               name={saved ? "bookmark" : "bookmark-outline"}></ion-icon>
           </div>
@@ -91,9 +98,11 @@ function Post(props) {
 
         <div className="curtidas">
           <img src="assets/img/respondeai.svg" alt="" />
-          <div className="texto">
+          <div  className="texto">
             Curtido por <strong>{props.curtidoPor}</strong> e{" "}
-            <strong>outras {numberWithDot(curtidas)} pessoas</strong>
+            <strong data-test="likes-number">
+              outras {numberWithDot(curtidas)} pessoas
+            </strong>
           </div>
         </div>
       </div>

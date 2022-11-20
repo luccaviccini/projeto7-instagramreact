@@ -4,14 +4,14 @@ export default function Usuario(props){
     const [username, setUsername] = React.useState(props.username)
     function getUserName() {
       const userName = prompt("Digite seu nome de usuário");
-      setUsername(userName);
+      setUsername(!userName.length? props.username : userName);
     }
 
 
     const [profileImage , setProfileImage] = React.useState(props.imagem)
     function getImage(){
       const imagePerfil = prompt("Coloque o link da nova imagem")
-      setProfileImage(imagePerfil)
+      setProfileImage(!imagePerfil.length? props.imagem : imagePerfil);
     } 
 
     return (

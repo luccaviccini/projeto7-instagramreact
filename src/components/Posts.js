@@ -38,12 +38,25 @@ export default function Posts() {
 function Post(props) {
   const [liked, setLiked] = React.useState(false);
   const [saved, setSaved] = React.useState(false);
+  const [animacao, setAnimacao] = React.useState("myBox")
 
   const [curtidas, setCurtidas] = React.useState(props.curtidas);
 
   function like() {
     setLiked(!liked);
-    !liked ? setCurtidas(curtidas + 1) : setCurtidas(curtidas - 1);
+    if (!liked) {
+      setCurtidas(curtidas + 1);
+      animationLike();
+    } else {
+      setCurtidas(curtidas - 1);
+    }
+  }
+  function animationLike(){
+    
+    setAnimacao("myBox animation")
+    setTimeout(() => {
+     setAnimacao("myBox");
+    }, 500);
   }
 
   function save() {
@@ -69,10 +82,13 @@ function Post(props) {
       <div className="conteudo">
         <img
           data-test="post-image"
-          onDoubleClick={!liked ? like : () => {}}
+          onDoubleClick={(!liked ? (like) : animationLike)}
           src={props.conteudo}
           alt=""
         />
+        <div className={animacao}>
+          <ion-icon className = "myHeart"name="heart"></ion-icon>
+        </div>
       </div>
 
       <div className="fundo">
@@ -98,7 +114,7 @@ function Post(props) {
 
         <div className="curtidas">
           <img src="assets/img/respondeai.svg" alt="" />
-          <div  className="texto">
+          <div className="texto">
             Curtido por <strong>{props.curtidoPor}</strong> e{" "}
             <strong data-test="likes-number">
               outras {numberWithDot(curtidas)} pessoas

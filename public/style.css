@@ -185,6 +185,41 @@ body {
   cursor: pointer;
 }
 
+.post .conteudo {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.myBox {
+  color: rgba(255, 255, 255, 0.946);
+  position: absolute;
+  font-size: 128px;
+  opacity: 0.9;
+  display: none;
+}
+
+@keyframes myHeart {
+  0% {
+    display: block;
+    transform: scale(0.2);
+  }
+  80%{
+    display: block;
+    transform: scale(1.2);
+  }
+  100% {
+    display: block;
+    transform: scale(1);
+  }
+}
+
+.animation{
+  display: block;
+  animation: myHeart 0.3s ease-in forwards;
+}
+
 .post .conteudo img {
   width: 100%;
 }

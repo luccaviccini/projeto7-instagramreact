@@ -24,8 +24,8 @@ export default function Usuario(props){
         />
         <div className="texto">
           <strong>{props.username}</strong>
-          <span data-test="name">
-            {username}
+          <span>
+            <span data-test="name">{username}</span>
             <ion-icon
               data-test="edit-name"
               onClick={getUserName}

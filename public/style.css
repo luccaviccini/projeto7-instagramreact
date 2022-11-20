@@ -217,7 +217,7 @@ body {
 
 .animation{
   display: block;
-  animation: myHeart 0.3s ease-in forwards;
+  animation: myHeart 0.3s ease-in ;
 }
 
 .post .conteudo img {
